@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,9 +51,23 @@
   }
 
   body {
-    @apply bg-maximally-cream text-foreground;
+    @apply bg-maximally-cream text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    text-transform: lowercase;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight font-medium;
+    text-transform: lowercase;
+  }
+  
+  p, span, a, button, input, label {
+    @apply font-sans;
+  }
+  
+  input, textarea, select, button {
+    text-transform: none;
   }
 }
 
