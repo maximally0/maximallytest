@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Clock } from 'lucide-react';
 
 interface TimeLeft {
   days: number;
@@ -46,28 +45,22 @@ const CountdownTimer: React.FC = () => {
   });
 
   const timerComponents = [
-    { label: 'Days', value: timeLeft.days, color: 'from-maximally-neon-green to-maximally-neon-blue' },
-    { label: 'Hours', value: timeLeft.hours, color: 'from-maximally-neon-blue to-maximally-neon-purple' },
-    { label: 'Minutes', value: timeLeft.minutes, color: 'from-maximally-neon-purple to-maximally-neon-pink' },
-    { label: 'Seconds', value: timeLeft.seconds, color: 'from-maximally-neon-pink to-maximally-neon-orange' }
+    { label: 'Days', value: timeLeft.days },
+    { label: 'Hours', value: timeLeft.hours },
+    { label: 'Minutes', value: timeLeft.minutes },
+    { label: 'Seconds', value: timeLeft.seconds }
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto my-12 px-4">
-      <div className="flex flex-col items-center gap-3 mb-8">
-        <Clock className="h-8 w-8 text-maximally-neon-purple animate-ping-slow" />
-        <h3 className="text-center text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-maximally-neon-purple to-maximally-neon-pink bg-clip-text text-transparent">
-          Launching In
-        </h3>
-      </div>
-      
+    <div className="w-full max-w-4xl mx-auto my-12 px-4">
+      <h3 className="text-center text-2xl font-medium text-gray-800 mb-8">Launching In</h3>
       <div className="flex justify-center flex-wrap gap-6">
-        {timerComponents.map(({ label, value, color }) => (
-          <div key={label} className="flex flex-col items-center hover:scale-110 transition-transform duration-300">
-            <div className={`glass-card bg-gradient-to-br ${color} bg-opacity-20 p-6 w-24 h-24 flex items-center justify-center animate-float shadow-neon`}>
-              <span className="text-4xl font-bold text-gray-800">{value}</span>
+        {timerComponents.map(({ label, value }) => (
+          <div key={label} className="flex flex-col items-center">
+            <div className="bg-white rounded-xl shadow-lg p-6 w-24 h-24 flex items-center justify-center animate-count-down">
+              <span className="text-4xl font-bold text-maximally-green">{value}</span>
             </div>
-            <span className="mt-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">{label}</span>
+            <span className="mt-2 text-sm font-medium text-gray-600">{label}</span>
           </div>
         ))}
       </div>
