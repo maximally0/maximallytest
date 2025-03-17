@@ -52,9 +52,18 @@ const PreOrderForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-md relative">
+      {/* Geometric shapes */}
+      <div className="absolute -top-6 -right-6 w-10 h-10 bg-maximally-red opacity-40 rotate-12"></div>
+      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-maximally-yellow rounded-full opacity-40"></div>
+      
+      <div className="text-left mb-6">
+        <h3 className="text-xl font-bold lowercase">secure your first batch</h3>
+        <p className="text-gray-600">of Maximally probiotics now.</p>
+      </div>
+      
       <div className="space-y-2">
-        <Label htmlFor="name">Full Name</Label>
+        <Label htmlFor="name" className="text-maximally-black font-medium">Full Name</Label>
         <Input
           id="name"
           name="name"
@@ -62,11 +71,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.name}
           onChange={handleChange}
+          className="border-gray-300 focus:border-maximally-green bg-white"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-maximally-black font-medium">Email</Label>
         <Input
           id="email"
           name="email"
@@ -75,11 +85,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.email}
           onChange={handleChange}
+          className="border-gray-300 focus:border-maximally-green bg-white"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone">Phone Number</Label>
+        <Label htmlFor="phone" className="text-maximally-black font-medium">Phone Number</Label>
         <Input
           id="phone"
           name="phone"
@@ -88,11 +99,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.phone}
           onChange={handleChange}
+          className="border-gray-300 focus:border-maximally-green bg-white"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="address">Address</Label>
+        <Label htmlFor="address" className="text-maximally-black font-medium">Address</Label>
         <Input
           id="address"
           name="address"
@@ -100,12 +112,13 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.address}
           onChange={handleChange}
+          className="border-gray-300 focus:border-maximally-green bg-white"
         />
       </div>
 
       <Button 
         type="submit" 
-        className="w-full bg-maximally-green text-white hover:bg-maximally-dark-green transition-colors"
+        className="w-full bg-maximally-black text-white hover:bg-gray-800 transition-colors btn-hover"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Processing..." : "Pre-Order Now"}
