@@ -37,7 +37,7 @@ const EmailSubscribe: React.FC = () => {
     <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-md">
       <div className="space-y-2">
         <Label htmlFor="subscribe-email" className="text-gray-700 font-medium flex items-center gap-2">
-          <BellRing className="h-4 w-4 text-maximally-purple" />
+          <BellRing className="h-4 w-4 text-maximally-neon-purple animate-ping-slow" />
           Email
         </Label>
         <Input
@@ -47,7 +47,7 @@ const EmailSubscribe: React.FC = () => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border-maximally-purple/30 focus:border-maximally-purple focus-visible:ring-maximally-purple/20 transition-all duration-300"
+          className="border-maximally-neon-purple/30 focus:border-maximally-neon-purple focus-visible:ring-maximally-neon-purple/20 transition-all duration-300 hover:shadow-md"
         />
       </div>
 
@@ -56,7 +56,7 @@ const EmailSubscribe: React.FC = () => {
           id="sms-consent" 
           checked={smsConsent} 
           onCheckedChange={(checked) => setSmsConsent(checked as boolean)}
-          className="border-maximally-purple/50 data-[state=checked]:bg-maximally-purple data-[state=checked]:text-white mt-1"
+          className="border-maximally-neon-purple/50 data-[state=checked]:bg-maximally-neon-purple data-[state=checked]:text-white mt-1"
         />
         <Label htmlFor="sms-consent" className="text-sm text-gray-600 font-medium">
           I agree to receive SMS updates about Maximally's launch and offers.
@@ -66,7 +66,7 @@ const EmailSubscribe: React.FC = () => {
       <Button 
         type="submit" 
         variant="outline"
-        className="w-full border-2 border-maximally-purple text-maximally-purple hover:bg-maximally-purple hover:text-white font-bold transition-all duration-300 rounded-xl py-6"
+        className="w-full border-2 border-maximally-neon-purple text-maximally-neon-purple hover:bg-maximally-neon-purple hover:text-white hover:scale-105 hover:shadow-neon transition-all duration-300 font-bold rounded-xl py-6"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

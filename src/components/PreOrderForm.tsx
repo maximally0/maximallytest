@@ -63,7 +63,7 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.name}
           onChange={handleChange}
-          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
+          className="border-maximally-neon-green/30 focus:border-maximally-neon-green focus-visible:ring-maximally-neon-green/20 transition-all duration-300 hover:shadow-md"
         />
       </div>
 
@@ -77,7 +77,7 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.email}
           onChange={handleChange}
-          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
+          className="border-maximally-neon-green/30 focus:border-maximally-neon-green focus-visible:ring-maximally-neon-green/20 transition-all duration-300 hover:shadow-md"
         />
       </div>
 
@@ -91,7 +91,7 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.phone}
           onChange={handleChange}
-          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
+          className="border-maximally-neon-green/30 focus:border-maximally-neon-green focus-visible:ring-maximally-neon-green/20 transition-all duration-300 hover:shadow-md"
         />
       </div>
 
@@ -104,13 +104,13 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.address}
           onChange={handleChange}
-          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
+          className="border-maximally-neon-green/30 focus:border-maximally-neon-green focus-visible:ring-maximally-neon-green/20 transition-all duration-300 hover:shadow-md"
         />
       </div>
 
       <Button 
         type="submit" 
-        className="w-full bg-gradient-to-r from-maximally-green to-maximally-blue text-gray-800 font-bold hover:shadow-lg hover:from-maximally-blue hover:to-maximally-green transition-all duration-300 rounded-xl py-6"
+        className="w-full bg-gradient-to-r from-maximally-neon-green to-maximally-neon-blue text-white font-bold hover:shadow-neon hover:scale-105 transition-all duration-300 rounded-xl py-6"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
@@ -119,7 +119,7 @@ const PreOrderForm: React.FC = () => {
           <>
             Pre-Order Now
             <ArrowRight className="ml-2 h-5 w-5" />
-            <Sparkles className="ml-1 h-4 w-4 animate-pulse" />
+            <Sparkles className="ml-1 h-4 w-4 animate-ping-slow" />
           </>
         )}
       </Button>
