@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Clock } from 'lucide-react';
 
 interface TimeLeft {
   days: number;
@@ -45,22 +46,28 @@ const CountdownTimer: React.FC = () => {
   });
 
   const timerComponents = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds }
+    { label: 'Days', value: timeLeft.days, color: 'from-maximally-green to-maximally-blue' },
+    { label: 'Hours', value: timeLeft.hours, color: 'from-maximally-blue to-maximally-purple' },
+    { label: 'Minutes', value: timeLeft.minutes, color: 'from-maximally-purple to-maximally-pink' },
+    { label: 'Seconds', value: timeLeft.seconds, color: 'from-maximally-pink to-maximally-orange' }
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-12 px-4">
-      <h3 className="text-center text-2xl font-medium text-gray-800 mb-8">Launching In</h3>
+    <div className="w-full max-w-5xl mx-auto my-12 px-4">
+      <div className="flex flex-col items-center gap-3 mb-8">
+        <Clock className="h-8 w-8 text-maximally-purple animate-pulse" />
+        <h3 className="text-center text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-maximally-purple to-maximally-pink bg-clip-text text-transparent">
+          Launching In
+        </h3>
+      </div>
+      
       <div className="flex justify-center flex-wrap gap-6">
-        {timerComponents.map(({ label, value }) => (
+        {timerComponents.map(({ label, value, color }) => (
           <div key={label} className="flex flex-col items-center">
-            <div className="bg-white rounded-xl shadow-lg p-6 w-24 h-24 flex items-center justify-center animate-count-down">
-              <span className="text-4xl font-bold text-maximally-green">{value}</span>
+            <div className={`glass-card bg-gradient-to-br ${color} bg-opacity-10 p-6 w-24 h-24 flex items-center justify-center animate-float`}>
+              <span className="text-4xl font-bold text-gray-800">{value}</span>
             </div>
-            <span className="mt-2 text-sm font-medium text-gray-600">{label}</span>
+            <span className="mt-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">{label}</span>
           </div>
         ))}
       </div>

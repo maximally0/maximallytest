@@ -64,13 +64,17 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				maximally: {
-					green: '#4CAF50',
-					'light-green': '#8BC34A',
-					'dark-green': '#2E7D32',
-					blue: '#2196F3',
-					'light-blue': '#64B5F6',
-					beige: '#F5F5DC',
-					'light-beige': '#FFFFF0',
+					green: '#00FFAA',
+					'light-green': '#AFFFD0',
+					'dark-green': '#00CC88',
+					blue: '#33BBFF',
+					'light-blue': '#AAE5FF',
+					beige: '#FFF5E0',
+					'light-beige': '#FFFAF2',
+					purple: '#BB44FF',
+					pink: '#FF44BB',
+					yellow: '#FFD100',
+					orange: '#FF6D00',
 				}
 			},
 			borderRadius: {
@@ -115,13 +119,37 @@ export default {
 					'100%': {
 						transform: 'scale(1.05)'
 					}
+				},
+				'float': {
+					'0%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					},
+					'100%': {
+						transform: 'translateY(0px)'
+					}
+				},
+				'pulse-glow': {
+					'0%': {
+						boxShadow: '0 0 5px 0 rgba(0, 255, 170, 0.4)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px 5px rgba(0, 255, 170, 0.7)'
+					},
+					'100%': {
+						boxShadow: '0 0 5px 0 rgba(0, 255, 170, 0.4)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'count-down': 'count-down 2s ease-in-out infinite'
+				'count-down': 'count-down 2s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
 			}
 		}
 	},

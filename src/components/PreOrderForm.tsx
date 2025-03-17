@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -52,9 +53,9 @@ const PreOrderForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-md">
       <div className="space-y-2">
-        <Label htmlFor="name">Full Name</Label>
+        <Label htmlFor="name" className="text-gray-700 font-medium">Full Name</Label>
         <Input
           id="name"
           name="name"
@@ -62,11 +63,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.name}
           onChange={handleChange}
+          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-gray-700 font-medium">Email</Label>
         <Input
           id="email"
           name="email"
@@ -75,11 +77,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.email}
           onChange={handleChange}
+          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone">Phone Number</Label>
+        <Label htmlFor="phone" className="text-gray-700 font-medium">Phone Number</Label>
         <Input
           id="phone"
           name="phone"
@@ -88,11 +91,12 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.phone}
           onChange={handleChange}
+          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="address">Address</Label>
+        <Label htmlFor="address" className="text-gray-700 font-medium">Address</Label>
         <Input
           id="address"
           name="address"
@@ -100,15 +104,24 @@ const PreOrderForm: React.FC = () => {
           required
           value={formData.address}
           onChange={handleChange}
+          className="border-maximally-green/30 focus:border-maximally-green focus-visible:ring-maximally-green/20 transition-all duration-300"
         />
       </div>
 
       <Button 
         type="submit" 
-        className="w-full bg-maximally-green text-white hover:bg-maximally-dark-green transition-colors"
+        className="w-full bg-gradient-to-r from-maximally-green to-maximally-blue text-gray-800 font-bold hover:shadow-lg hover:from-maximally-blue hover:to-maximally-green transition-all duration-300 rounded-xl py-6"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Processing..." : "Pre-Order Now"}
+        {isSubmitting ? (
+          "Processing..."
+        ) : (
+          <>
+            Pre-Order Now
+            <ArrowRight className="ml-2 h-5 w-5" />
+            <Sparkles className="ml-1 h-4 w-4 animate-pulse" />
+          </>
+        )}
       </Button>
     </form>
   );
