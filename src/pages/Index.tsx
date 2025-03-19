@@ -3,7 +3,6 @@ import React from 'react';
 import { ArrowRight, Mail, Users, Instagram, Linkedin, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Logo from '@/components/Logo';
-import CountdownTimer from '@/components/CountdownTimer';
 import PreOrderForm from '@/components/PreOrderForm';
 import EmailSubscribe from '@/components/EmailSubscribe';
 import TransparencyStatement from '@/components/TransparencyStatement';
@@ -105,9 +104,6 @@ const Index: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Countdown Section */}
-      <CountdownTimer />
 
       {/* Transparency Section */}
       <section id="transparency" className="py-20 px-6 bg-white relative">
@@ -228,9 +224,9 @@ const Index: React.FC = () => {
               </a>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-500">
-              <a href="#" className="hover:text-maximally-black transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-maximally-black transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-maximally-black transition-colors">Contact Us</a>
+              <a href="/privacy-policy" className="hover:text-maximally-black transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-maximally-black transition-colors">Terms of Service</a>
+              <a href="/contact-us" className="hover:text-maximally-black transition-colors">Contact Us</a>
             </div>
           </div>
         </div>
