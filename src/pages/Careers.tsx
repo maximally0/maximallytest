@@ -1,12 +1,18 @@
 
 import React from 'react';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, Instagram, Linkedin, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Logo from '@/components/Logo';
+import { Helmet } from 'react-helmet';
 
 const Careers: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-maximally-cream relative overflow-hidden">
+      <Helmet>
+        <title>Careers | Maximally</title>
+        <meta name="description" content="Join our team at Maximally. We're always hiring talented minds passionate about transforming gut health through science-backed probiotics." />
+      </Helmet>
+      
       {/* Abstract geometric shapes - background elements */}
       <div className="abstract-shape w-32 h-32 bg-maximally-yellow rounded-full top-20 -left-10 opacity-20 animate-float"></div>
       <div className="abstract-shape w-40 h-40 bg-maximally-blue top-40 -right-20 opacity-10 animate-float" style={{ animationDelay: '2s' }}></div>
@@ -110,21 +116,30 @@ const Careers: React.FC = () => {
           <div className="mb-4 md:mb-0">
             <Logo />
             <p className="text-sm text-gray-500 mt-2">© {new Date().getFullYear()} Maximally. All rights reserved.</p>
+            <div className="flex flex-col mt-3 gap-1 text-sm text-gray-500">
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>+91 9041260790</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-4 w-4 mr-2" />
+                <a href="mailto:hello@maximally.in" className="hover:text-maximally-black transition-colors">hello@maximally.in</a>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex gap-4 justify-center md:justify-end">
               <a href="https://www.instagram.com/maximally.in/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
-                Instagram
+                <Instagram size={20} />
               </a>
               <a href="https://www.linkedin.com/company/maximallysupplements/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
-                LinkedIn
+                <Linkedin size={20} />
               </a>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-500">
-              <span className="hover:text-maximally-black transition-colors">+91 9041260790</span>
-              <a href="mailto:hello@maximally.in" className="hover:text-maximally-black transition-colors">hello@maximally.in</a>
-              <a href="#" className="hover:text-maximally-black transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-maximally-black transition-colors">Terms of Service</a>
+              <a href="/privacy-policy" className="hover:text-maximally-black transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-maximally-black transition-colors">Terms of Service</a>
+              <a href="/contact-us" className="hover:text-maximally-black transition-colors">Contact Us</a>
             </div>
           </div>
         </div>
