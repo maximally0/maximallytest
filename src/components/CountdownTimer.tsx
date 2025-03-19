@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 interface TimeLeft {
   days: number;
@@ -48,21 +47,6 @@ const CountdownTimer: React.FC = () => {
     label: 'seconds',
     value: timeLeft.seconds
   }];
-  
-  return (
-    <div className="w-full max-w-4xl mx-auto my-12 px-4">
-      <h3 className="text-center text-2xl font-normal tracking-tight text-maximally-black mb-8 lowercase">launching in</h3>
-      <div className="flex justify-center flex-wrap gap-6">
-        {timerComponents.map(({ label, value }) => (
-          <div key={label} className="flex flex-col items-center">
-            <div className="bg-white rounded-sm shadow-md p-6 w-24 h-24 flex items-center justify-center animate-count-down">
-              <span className="text-4xl font-mono text-maximally-black">{value}</span>
-            </div>
-            <span className="mt-2 text-sm font-mono text-gray-600">{label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return;
 };
 export default CountdownTimer;
