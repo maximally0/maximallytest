@@ -1,16 +1,27 @@
 
 import React from 'react';
-import { ArrowRight, Mail, Users, Instagram, Twitter, Facebook } from 'lucide-react';
+import { ArrowRight, Mail, Users, Instagram, Linkedin, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Logo from '@/components/Logo';
 import CountdownTimer from '@/components/CountdownTimer';
 import PreOrderForm from '@/components/PreOrderForm';
 import EmailSubscribe from '@/components/EmailSubscribe';
 import TransparencyStatement from '@/components/TransparencyStatement';
+import { Helmet } from 'react-helmet';
 
 const Index: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-maximally-cream relative overflow-hidden">
+      <Helmet>
+        <title>Maximally | Probiotics & Gut Health Supplements</title>
+        <meta name="description" content="Maximally offers premium probiotics and gut health supplements with a transparent approach. Improve your digestive health with our science-backed formulations." />
+        <meta name="keywords" content="probiotics, gut health, supplements, digestive health, microbiome, gut bacteria, gut flora, healthy digestion, transparent supplements, premium probiotics" />
+        <meta property="og:title" content="Maximally | Probiotics & Gut Health Supplements" />
+        <meta property="og:description" content="Premium probiotics with a transparent approach to gut health. Join our community of health enthusiasts." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://maximally.in" />
+      </Helmet>
+
       {/* Abstract geometric shapes - background elements */}
       <div className="abstract-shape w-32 h-32 bg-maximally-yellow rounded-full top-20 -left-10 opacity-20 animate-float"></div>
       <div className="abstract-shape w-40 h-40 bg-maximally-blue top-40 -right-20 opacity-10 animate-float" style={{ animationDelay: '2s' }}></div>
@@ -23,7 +34,7 @@ const Index: React.FC = () => {
           <Logo />
           <div className="flex space-x-4">
             <a 
-              href="https://forms.gle/example-influencer-form" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLScF7pAVB7V9lq402308_hWXsA57jXEMkmzoMh06mzSwCiQYyw/viewform" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-sm text-gray-600 hover:text-maximally-black flex items-center transition-colors"
@@ -166,7 +177,7 @@ const Index: React.FC = () => {
                     <h3 className="text-xl font-semibold text-maximally-black lowercase">join our community</h3>
                     <div className="flex flex-col gap-4">
                       <a 
-                        href="https://forms.gle/example-influencer-form" 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScF7pAVB7V9lq402308_hWXsA57jXEMkmzoMh06mzSwCiQYyw/viewform" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-4 py-2 rounded-sm bg-white text-maximally-black border-2 border-maximally-black hover:bg-maximally-black hover:text-white transition-colors btn-hover"
@@ -196,17 +207,24 @@ const Index: React.FC = () => {
           <div className="mb-4 md:mb-0">
             <Logo />
             <p className="text-sm text-gray-500 mt-2">© {new Date().getFullYear()} Maximally. All rights reserved.</p>
+            <div className="flex flex-col mt-3 gap-1 text-sm text-gray-500">
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>+91 9041260790</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-4 w-4 mr-2" />
+                <a href="mailto:hello@maximally.in" className="hover:text-maximally-black transition-colors">hello@maximally.in</a>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex gap-4 justify-center md:justify-end">
-              <a href="#" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
+              <a href="https://www.instagram.com/maximally.in/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
-                <Facebook size={20} />
+              <a href="https://www.linkedin.com/company/maximallysupplements/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-maximally-black transition-colors">
+                <Linkedin size={20} />
               </a>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-500">

@@ -9,7 +9,81 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      email_subscriptions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          sms_consent: boolean | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          sms_consent?: boolean | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          sms_consent?: boolean | null
+        }
+        Relationships: []
+      }
+      influencers: {
+        Row: {
+          created_at: string
+          email: string
+          followers_count: number | null
+          id: string
+          instagram: string | null
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          followers_count?: number | null
+          id?: string
+          instagram?: string | null
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          followers_count?: number | null
+          id?: string
+          instagram?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
+      preorder_submissions: {
+        Row: {
+          address: string
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

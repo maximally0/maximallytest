@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
 
 const EmailSubscribe: React.FC = () => {
   const { toast } = useToast();
@@ -12,24 +13,51 @@ const EmailSubscribe: React.FC = () => {
   const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Here we would typically send the data to a backend API
-    // For now, we'll simulate a successful submission
-    setTimeout(() => {
-      console.log('Subscription submitted:', { email, smsConsent });
-      toast({
-        title: "Subscription successful!",
-        description: "You'll be among the first to receive updates about Maximally.",
-      });
+    try {
+      // Store the email in the email_subscriptions table
+      const { error } = await supabase
+        .from('email_subscriptions')
+        .insert([
+          {
+            email,
+            sms_consent: smsConsent
+          }
+        ]);
+
+      if (error) {
+        // If it's a duplicate error, we'll show a different message
+        if (error.code === '23505') {
+          toast({
+            title: "You're already subscribed!",
+            description: "This email is already in our subscription list.",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Subscription successful!",
+          description: "You'll be among the first to receive updates about Maximally.",
+        });
+      }
       
       // Reset form
       setEmail('');
       setSmsConsent(false);
+    } catch (error) {
+      console.error('Error submitting subscription:', error);
+      toast({
+        title: "Subscription failed",
+        description: "There was an error subscribing to our updates. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (

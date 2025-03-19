@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormData {
   name: string;
@@ -27,14 +28,39 @@ const PreOrderForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Here we would typically send the data to a backend API
-    // For now, we'll simulate a successful submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    try {
+      // Store the form data in the preorder_submissions table
+      const { error } = await supabase
+        .from('preorder_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address
+          }
+        ]);
+
+      if (error) throw error;
+
+      // Also store the email in the email_subscriptions table
+      const { error: emailError } = await supabase
+        .from('email_subscriptions')
+        .insert([
+          {
+            email: formData.email,
+            sms_consent: false
+          }
+        ])
+        .match({ email: formData.email });
+
+      // We don't throw on emailError as it might be a duplicate
+
+      console.log('Form submitted successfully');
       toast({
         title: "Pre-order request submitted!",
         description: "Thank you for your interest in Maximally. We'll contact you soon.",
@@ -47,8 +73,16 @@ const PreOrderForm: React.FC = () => {
         phone: '',
         address: ''
       });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Submission failed",
+        description: "There was an error submitting your pre-order. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
